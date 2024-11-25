@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Artist | Music Booking Agency</title>
+    <meta name="description" content="Find the perfect artist for your event with our professional music booking agency.">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Music Booking Agency</h1>
+        <p>Your one-stop solution for booking top-tier musicians and entertainers for events.</p>
+    </header>
+
+    <!-- Featured Artist Section -->
+    <section id="featured-artists">
+        <h2>Featured Artists</h2>
+        <p>Discover our talented musicians available for your upcoming events!</p>
+        <div class="artist-card">
+            <h3>Artist Name</h3>
+            <p>Genre: Rock, Jazz, Pop</p>
+            <img src="artist1.jpg" alt="Artist Name" width="200">
+        </div>
+        <div class="artist-card">
+            <h3>Artist Name</h3>
+            <p>Genre: Hip Hop, R&B</p>
+            <img src="artist2.jpg" alt="Artist Name" width="200">
+        </div>
+    </section>
+
+    <!-- Event Booking Section -->
+    <section id="event-booking">
+        <h2>Book an Artist for Your Event</h2>
+        <p>Select an artist and book them for your next event.</p>
+        <form action="booking-confirmation.html" method="POST">
+            <label for="artist">Select Artist:</label>
+            <select id="artist" name="artist">
+                <option value="artist1">Artist Name - Rock, Jazz, Pop</option>
+                <option value="artist2">Artist Name - Hip Hop, R&B</option>
+            </select>
+
+            <label for="event-date">Event Date:</label>
+            <input type="date" id="event-date" name="event-date" required>
+
+            <label for="event-location">Event Location:</label>
+            <input type="text" id="event-location" name="event-location" placeholder="Enter location" required>
+
+            <button type="submit">Book Artist</button>
+        </form>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Client Testimonials</h2>
+        <div class="testimonial">
+            <p>"The booking process was so easy and the artist delivered an amazing performance!"</p>
+            <p>- Event Organizer</p>
+        </div>
+        <div class="testimonial">
+            <p>"The musicians were a hit at our festival. Highly recommend!"</p>
+            <p>- Festival Manager</p>
+        </div>
+    </section>
+	
+	<section id="dynamic-data">
+    <h2>Our Users</h2>
+    <div id="user-list">
+        <!-- User data will be displayed here -->
+    </div>
+</section>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Music Booking Agency. All Rights Reserved.</p>
+        <p>Contact us: <a href="mailto:info@musicbookingagency.com">info@musicbookingagency.com</a></p>
+        <p>Follow us:</p>
+        <a href="https://facebook.com" target="_blank">Facebook</a> | 
+        <a href="https://twitter.com" target="_blank">Twitter</a> | 
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+    </footer>
+	
+	<script>
+    // Select the button element
+    const btn = document.getElementById('changeColorBtn');
+    
+    // Define an array of colors
+    const colors = ['#f4f4f4', '#ffb6b9', '#ff6f61', '#6b5b95', '#feb236'];
+    
+    // Add click event listener to the button
+    btn.addEventListener('click', function() {
+        // Generate a random index to choose a color
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Change the background color of the body
+        document.body.style.backgroundColor = randomColor;
+		
+		// Fetch user data from JSONPlaceholder
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(data => {
+            const userList = document.getElementById('user-list');
+            
+            // Loop through the data and display each user's name
+            data.forEach(user => {
+                const userItem = document.createElement('div');
+                userItem.classList.add('user-item');
+                userItem.innerHTML = `
+                    <h3>${user.name}</h3>
+                    <p>Email: ${user.email}</p>
+                    <p>Website: <a href="http://${user.website}" target="_blank">${user.website}</a></p>
+                `;
+                userList.appendChild(userItem);
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    });
+</script>
+</body>
+</html>

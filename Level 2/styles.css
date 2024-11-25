@@ -1,0 +1,50 @@
+/* Base Styles (already in your styles.css) */
+
+/* Responsive Design: Mobile-first approach */
+
+/* For smaller screens (mobile devices) */
+@media only screen and (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .artist-card {
+        width: 100%; /* Make artist cards take full width */
+        margin: 10px 0;
+    }
+
+    #event-booking form {
+        width: 100%;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    footer a {
+        font-size: 0.9rem;
+    }
+}
+
+/* For tablets (between 600px and 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .artist-card {
+        width: 48%; /* Two columns */
+    }
+
+    #event-booking form {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* For desktops (larger than 1024px) */
+@media only screen and (min-width: 1025px) {
+    .artist-card {
+        width: 30%; /* Three columns */
+    }
+}

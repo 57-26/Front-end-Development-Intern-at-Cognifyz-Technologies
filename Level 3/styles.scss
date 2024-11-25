@@ -1,0 +1,19 @@
+// Define color variables
+$primary-color: #007bff;
+$secondary-color: #28a745;
+
+// Use variables and nesting
+body {
+    font-family: Arial, sans-serif;
+    background-color: $primary-color;
+
+    h1 {
+        color: white;
+        font-size: 3rem;
+    }
+
+    button {
+        background-color: $secondary-color;
+        border-radius: 5px;
+    }
+}

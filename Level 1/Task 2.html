@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Artist | Music Booking Agency</title>
+    <meta name="description" content="Find the perfect artist for your event with our professional music booking agency.">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Music Booking Agency</h1>
+        <p>Your one-stop solution for booking top-tier musicians and entertainers for events.</p>
+    </header>
+
+    <!-- Featured Artist Section -->
+    <section id="featured-artists">
+        <h2>Featured Artists</h2>
+        <p>Discover our talented musicians available for your upcoming events!</p>
+        <div class="artist-card">
+            <h3>Artist Name</h3>
+            <p>Genre: Rock, Jazz, Pop</p>
+            <img src="artist1.jpg" alt="Artist Name" width="200">
+        </div>
+        <div class="artist-card">
+            <h3>Artist Name</h3>
+            <p>Genre: Hip Hop, R&B</p>
+            <img src="artist2.jpg" alt="Artist Name" width="200">
+        </div>
+    </section>
+
+    <!-- Event Booking Section -->
+    <section id="event-booking">
+        <h2>Book an Artist for Your Event</h2>
+        <p>Select an artist and book them for your next event.</p>
+        <form action="booking-confirmation.html" method="POST">
+            <label for="artist">Select Artist:</label>
+            <select id="artist" name="artist">
+                <option value="artist1">Artist Name - Rock, Jazz, Pop</option>
+                <option value="artist2">Artist Name - Hip Hop, R&B</option>
+            </select>
+
+            <label for="event-date">Event Date:</label>
+            <input type="date" id="event-date" name="event-date" required>
+
+            <label for="event-location">Event Location:</label>
+            <input type="text" id="event-location" name="event-location" placeholder="Enter location" required>
+
+            <button type="submit">Book Artist</button>
+        </form>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Client Testimonials</h2>
+        <div class="testimonial">
+            <p>"The booking process was so easy and the artist delivered an amazing performance!"</p>
+            <p>- Event Organizer</p>
+        </div>
+        <div class="testimonial">
+            <p>"The musicians were a hit at our festival. Highly recommend!"</p>
+            <p>- Festival Manager</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Music Booking Agency. All Rights Reserved.</p>
+        <p>Contact us: <a href="mailto:info@musicbookingagency.com">info@musicbookingagency.com</a></p>
+        <p>Follow us:</p>
+        <a href="https://facebook.com" target="_blank">Facebook</a> | 
+        <a href="https://twitter.com" target="_blank">Twitter</a> | 
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+    </footer>
+</body>
+</html>
