@@ -1,16 +1,32 @@
-<script>
-    // Select the button element
-    const btn = document.getElementById('changeColorBtn');
-    
-    // Define an array of colors
-    const colors = ['#f4f4f4', '#ffb6b9', '#ff6f61', '#6b5b95', '#feb236'];
-    
-    // Add click event listener to the button
-    btn.addEventListener('click', function() {
-        // Generate a random index to choose a color
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        
-        // Change the background color of the body
-        document.body.style.backgroundColor = randomColor;
+document.addEventListener('DOMContentLoaded', () => {
+    fetchPosts();
+});
+
+function fetchPosts() {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            displayPosts(data);
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+}
+
+function displayPosts(posts) {
+    const postsContainer = document.getElementById('posts-container');
+    posts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.classList.add('post');
+        postElement.innerHTML = `
+            <h3>${post.title}</h3>
+            <p>${post.body}</p>
+        `;
+        postsContainer.appendChild(postElement);
     });
-</script>
+}
